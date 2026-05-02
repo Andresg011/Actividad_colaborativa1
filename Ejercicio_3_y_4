@@ -1,0 +1,57 @@
+class Coche:
+    def __init__(self, marca, modelo, año):
+        self.marca = marca
+        self.modelo = modelo
+        self.año = año
+
+    def describir(self):
+        print(f"Coche: {self.marca} {self.modelo}, Año: {self.año}")
+
+
+# Crear objetos
+coche1 = Coche("Kia", "Picanto", 2020)
+coche2 = Coche("Chevrolet", "Tracker", 2021)
+coche3 = Coche("Mazda", "CX-5", 2022)
+
+# Mostrar información
+coche1.describir()
+coche2.describir()
+coche3.describir()
+
+class Vehiculo:
+    def __init__(self, velocidad):
+        self.velocidad = velocidad
+
+    def acelerar(self):
+        print(f"El vehículo acelera a {self.velocidad} km/h")
+
+
+class Coche(Vehiculo):
+    def __init__(self, velocidad, marca, modelo):
+        super().__init__(velocidad)
+        self.marca = marca
+        self.modelo = modelo
+
+    def describir(self):
+        print(f"Coche: {self.marca} {self.modelo} a {self.velocidad} km/h")
+
+
+class Bicicleta(Vehiculo):
+    def __init__(self, velocidad, tipo):
+        super().__init__(velocidad)
+        self.tipo = tipo
+
+    def describir(self):
+        print(f"Bicicleta tipo {self.tipo} a {self.velocidad} km/h")
+
+
+# Crear objetos
+coche = Coche(120, "Kia", "Picanto")
+bici = Bicicleta(25, "Montaña")
+
+# Usar métodos
+coche.describir()
+coche.acelerar()
+
+bici.describir()
+bici.acelerar()
