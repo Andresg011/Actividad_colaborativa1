@@ -1,4 +1,5 @@
-class Coche:
+CONSTRUCTORES
+clase Coche:
     def __init__(self, marca, modelo, año):
         self.marca = marca
         self.modelo = modelo
@@ -10,48 +11,50 @@ class Coche:
 
 # Crear objetos
 coche1 = Coche("Kia", "Picanto", 2020)
-coche2 = Coche("Chevrolet", "Tracker", 2021)
-coche3 = Coche("Mazda", "CX-5", 2022)
+coche2 = Coche("Toyota", "Fortuner", 2025)
+
 
 # Mostrar información
 coche1.describir()
 coche2.describir()
-coche3.describir()
 
-class Vehiculo:
-    def __init__(self, velocidad):
-        self.velocidad = velocidad
+
+HERENCIA VEHICULOS
+# CLASE PADRE: Lo que todos los vehículos tienen en común
+clase Vehiculo:
+    def __init__(self, marca):
+        self.marca = marca
+        self.velocidad = 0
 
     def acelerar(self):
-        print(f"El vehículo acelera a {self.velocidad} km/h")
+        self.velocidad += 20
+        print(f"El {self.marca} ahora va a {self.velocidad} km/h.")
 
+# CLASE HIJA 1: Un Coche es un Vehículo
+clase Coche(Vehiculo):
+    def __init__(self, marca, diesel):
+        # Con super() le pedimos al padre que guarde la marca
+        super().__init__(marca)
+        self.tipo_diesel = diesel
 
-class Coche(Vehiculo):
-    def __init__(self, velocidad, marca, modelo):
-        super().__init__(velocidad)
-        self.marca = marca
-        self.modelo = modelo
+    def usar_pito(self):
+        print("¡piii pii! El coche está pitando.")
 
-    def describir(self):
-        print(f"Coche: {self.marca} {self.modelo} a {self.velocidad} km/h")
+# CLASE HIJA 2: Una Bicicleta también es un Vehículo
+clase Bicicleta(Vehiculo):
+    def __init__(self, marca, tiene_canasta):
+        super().__init__(marca)
+        self.tiene_porta botella = tiene_porta botella
 
+    def usar_timbre(self):
+        print("¡Ring ring! Cuidado con la bici.")
 
-class Bicicleta(Vehiculo):
-    def __init__(self, velocidad, tipo):
-        super().__init__(velocidad)
-        self.tipo = tipo
+# Probando la Herencia 
 
-    def describir(self):
-        print(f"Bicicleta tipo {self.tipo} a {self.velocidad} km/h")
+mi_auto = Coche("toyota fortuner", "Diesel")
+mi_auto.acelerar()  # Heredado del padre
+mi_auto.usar_pito() # Propio de la hija
 
-
-# Crear objetos
-coche = Coche(120, "Kia", "Picanto")
-bici = Bicicleta(25, "Montaña")
-
-# Usar métodos
-coche.describir()
-coche.acelerar()
-
-bici.describir()
-bici.acelerar()
+mi_bici = Bicicleta("Specialized", True)
+mi_bici.acelerar()    # Heredado del padre
+mi_bici.usar_timbre() # Propio de la hija
