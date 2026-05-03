@@ -1,0 +1,43 @@
+"""
+Referencias:
+    Mwiti, D. (2025). Clases abstractas en Python: Una guía completa 
+    con ejemplos. DataCamp. 
+    https://www.datacamp.com/es/tutorial/python-abstract-classes
+"""
+ 
+from abc import ABC, abstractmethod
+#categoria general o clase genrar que esta sometido a las subclases como el avion y el pajaro
+class volador(ABC): 
+    
+    @abstractmethod
+    def volar(self):
+        pass
+    
+# clase que esta sometida los pajaros  
+class pajaro(volador):
+    def __init__(self,especie:str):
+        self.especie=especie 
+    #definicion del metodo de vuelo 
+    def volar(self):
+        print(f"{self.especie} vuelo mediante el aleteo de sus alas" )
+        
+# subclase de los aviones        
+class avion (volador):
+    def __init__(self,modelo: str):
+        self.modelo = modelo  
+    ##definicion del metodo de vuelo     
+    def volar(self):
+        print(f"{self.modelo} vuelo con motores")
+# lista creada de difereentes pajaros y aviones         
+lista_voladores = [
+    pajaro("Águila"),
+    avion("Boeing 737"),
+    avion("Airbus A320"),
+    pajaro("Colibrí"),
+]
+
+# imprimir lista de datos 
+for volador in lista_voladores:
+    volador.volar()
+      
+        

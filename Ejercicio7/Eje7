@@ -16,7 +16,7 @@ class animal(ABC):
     @abstractmethod # abstraccion es que todo animal debe tener un sonido o hacer un sonido
     def hacersonido(self):
         pass
-# cada animal sea perro o gato esta sujeto a la clase es decir son hijos de la clase de animal
+# cada animal sea perro o gato esta sujeto a la clase  es decir son hijos de la clase de animal
 # son subclases sujetas a la condicion hacer sonido    
 class perro (animal):
     def hacersonido(self):
