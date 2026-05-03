@@ -1,0 +1,46 @@
+"""
+Referencias:
+    Mwiti, D. (2025). Clases abstractas en Python: Una guía completa 
+    con ejemplos. DataCamp. 
+    https://www.datacamp.com/es/tutorial/python-abstract-classes
+"""
+
+
+from abc import ABC, abstractmethod
+
+class animal(ABC): 
+    # elaboracion de la classe abstracta
+    def __init__(self, nombre):
+        self.nombre = nombre
+    
+    @abstractmethod # abstraccion es que todo animal debe tener un sonido o hacer un sonido
+    def hacersonido(self):
+        pass
+# cada animal sea perro o gato esta sujeto a la clase es decir son hijos de la clase de animal
+# son subclases sujetas a la condicion hacer sonido    
+class perro (animal):
+    def hacersonido(self):
+        # se identifica el sonido que hace la subclase perro
+        print(f"{self.nombre} hace ladrido,dice :gua ,gua.")        
+        
+class gato(animal):
+    def hacersonido(self):
+        # se identifica el sonido que hace la subclase gato 
+        print(f"{self.nombre} hace maullido, dice: miau ,miau.")
+
+# Pedir nombres al usuario de perros y gatos 
+nombre_perro1 = input("Nombre del primer perro: ")
+nombre_perro2 = input("Nombre del segundo perro: ")
+nombre_gato1  = input("Nombre del primer gato: ")
+nombre_gato2  = input("nombre del segundo gato: ")
+
+# Crear la lista con los nombres ingresados
+lista_animales = [
+    perro(nombre_perro1),
+    perro(nombre_perro2),
+    gato(nombre_gato1),
+    gato(nombre_gato2),
+]
+# Imprimime la lista 
+for animal in lista_animales:
+    animal.hacersonido()
