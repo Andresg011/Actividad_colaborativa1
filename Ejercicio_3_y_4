@@ -1,0 +1,60 @@
+CONSTRUCTORES
+clase Coche:
+    def __init__(self, marca, modelo, año):
+        self.marca = marca
+        self.modelo = modelo
+        self.año = año
+
+    def describir(self):
+        print(f"Coche: {self.marca} {self.modelo}, Año: {self.año}")
+
+
+# Crear objetos
+coche1 = Coche("Kia", "Picanto", 2020)
+coche2 = Coche("Toyota", "Fortuner", 2025)
+
+
+# Mostrar información
+coche1.describir()
+coche2.describir()
+
+
+HERENCIA VEHICULOS
+# CLASE PADRE: Lo que todos los vehículos tienen en común
+clase Vehiculo:
+    def __init__(self, marca):
+        self.marca = marca
+        self.velocidad = 0
+
+    def acelerar(self):
+        self.velocidad += 20
+        print(f"El {self.marca} ahora va a {self.velocidad} km/h.")
+
+# CLASE HIJA 1: Un Coche es un Vehículo
+clase Coche(Vehiculo):
+    def __init__(self, marca, diesel):
+        # Con super() le pedimos al padre que guarde la marca
+        super().__init__(marca)
+        self.tipo_diesel = diesel
+
+    def usar_pito(self):
+        print("¡piii pii! El coche está pitando.")
+
+# CLASE HIJA 2: Una Bicicleta también es un Vehículo
+clase Bicicleta(Vehiculo):
+    def __init__(self, marca, tiene_canasta):
+        super().__init__(marca)
+        self.tiene_porta botella = tiene_porta botella
+
+    def usar_timbre(self):
+        print("¡Ring ring! Cuidado con la bici.")
+
+# Probando la Herencia 
+
+mi_auto = Coche("toyota fortuner", "Diesel")
+mi_auto.acelerar()  # Heredado del padre
+mi_auto.usar_pito() # Propio de la hija
+
+mi_bici = Bicicleta("Specialized", True)
+mi_bici.acelerar()    # Heredado del padre
+mi_bici.usar_timbre() # Propio de la hija
